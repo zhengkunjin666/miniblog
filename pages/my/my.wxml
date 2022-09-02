@@ -1,0 +1,28 @@
+<!--pages/my/my.wxml-->
+<view class="page-container">
+  <block wx:if="{{hasUser}}">
+    <view class="userInfo">
+      <text class="userinfo-nickname">{{userInfo.nickName}}</text>
+      <image class="userinfo-avatar" src="{{userInfo.avatarUrl}}"></image>
+    </view>
+  </block>
+  <block wx:if="{{hasUser}}">
+    <view class="nav-list">
+      <navigator class="nav-item" url="/pages/create/create">
+        <view class="nav-item-name">发布微博</view>
+        <view class="nav-item-icon"></view>
+      </navigator>
+      <navigator class="nav-item" url="/pages/my_topic/my_topic">
+        <view class="nav-item-name">我的微博</view>
+        <view class="nav-item-icon"></view>
+      </navigator>
+      <navigator class="nav-item" url="/pages/my_reply/my_reply">
+        <view class="nav-item-name">我的回复</view>
+        <view class="nav-item-icon"></view>
+      </navigator>
+    </view>
+  </block>
+  <block wx:if="{{!hasUser}}">
+    <button class="login-btn" hover-class="login-btn_hover" style="width: 80%;height: 120rpx;" bindtap="getUserInfo">授权登录使用</button>
+  </block>
+</view>

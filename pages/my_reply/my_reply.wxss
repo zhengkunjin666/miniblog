@@ -1,0 +1,7 @@
+/* pages/my_reply/my_reply.wxss */
+.reply-list {
+  height: 100%;
+}
+.reply-container {
+  background-color: #d3d1d1;
+}

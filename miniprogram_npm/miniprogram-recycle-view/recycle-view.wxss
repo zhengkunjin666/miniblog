@@ -1,0 +1,69 @@
+/* components/recycle-view/recycle-view.wxss */
+:host {
+  display: block;
+  width: 100%;
+}
+.index-item {
+  border-bottom: 5rpx solid #e4e4e4;
+  padding: 20rpx 30rpx 40rpx 20rpx;
+  display: block;
+}
+.index-nav {
+  display: flex;
+}
+.index-item:last-child {
+  border-bottom: 0;
+}
+.user-image {
+  width: 100rpx;
+  height: 100rpx;
+  margin-right: 20rpx;
+}
+.index-item-right {
+  width: 100%;
+}
+.user-name {
+  font-size: 15px;
+  color: #666;
+}
+.image-list {
+  margin-top: 20rpx;
+  display: flex;
+	flex-wrap: wrap;
+}
+.image-item {
+  width: 180rpx;
+  height: 180rpx;
+  margin-right: 20rpx;
+  margin-bottom: 20rpx;
+}
+.image-item:nth-child(3n) {
+  margin-right: 0;
+}
+.topic-info {
+  font-size: 13px;
+  color: #999;
+  display: flex;
+  justify-content: space-between;
+  margin-top: 10rpx;
+}
+.video-item {
+  width: 100%;
+  margin-top: 20rpx;
+}
+.index-toTop {
+  width: 100rpx;
+  height: 100rpx;
+  border-radius: 50%;
+  font-size: 25px;
+  font-weight: 900;
+  background: #e4e4e4;
+  text-align: center;
+  line-height: 100rpx;
+  position: fixed;
+  bottom: 50rpx;
+  right: 50rpx;
+}
+.index-toTop_hover {
+  opacity: 0.6;
+}

@@ -1,0 +1,18 @@
+<!--pages/create/create.wxml-->
+<view class="page-container">
+	<editor class="create-textarea" style="min-height: 200rpx;height: 200rpx;" auto-focus placeholder="今天有啥新发现 ~" bindinput="handleChange"></editor>
+	<block wx:if="{{imageList.length > 0}}">
+    <view class="create-image-list">
+      <image class="create-image-item" mode="aspectFill" wx:for="{{imageList}}" wx:key="tempFilePath" src="{{item}}" data-src="{{item}}" bindtap="previewImage"></image>
+    </view>
+  </block>
+	<block wx:if="{{videoList.length > 0}}">
+    <view class="create-video-list">
+      <video class="create-vidoe-item" wx:for="{{videoList}}" wx:key="tempFilePath" src="{{item}}" data-src="{{item}}" bindtap="previewImage"></video>
+    </view>
+  </block>
+	<view class="create-file-box" hover-class="create-file-box_hover" bindtap="handleUpload">
+		<view class="create-file"></view>
+	</view>
+	<button class="create-btn" hover-class="creadte-btn_hover" style="width: 35%;height: 100rpx;" bindtap="handleSubmit">发布</button>
+</view>

@@ -1,0 +1,13 @@
+<!--pages/my_reply/my_reply.wxml-->
+<import src="/template/reply/reply"/>
+
+<view class="page-container">
+  <recycle-view class="reply-list" height="{{height}}" batch="{{batchSetRecycleData}}" id="replyId" scroll-top="{{scrollTop}}" scroll-with-animation="true" bindscrolltolower="scrolltolower" bindscroll="pageScroll" refresherenabled="{{true}}" refreshertriggered="{{triggered}}" bindrefresherrefresh="onRefresh">
+    <recycle-item class="reply-item" wx:for="{{replyList}}" wx:key="_id">
+      <navigator class="reply-nav" url="/pages/detail/detail?id={{item.topic_id}}">
+        <template is="reply" data="{{item}}"/>
+      </navigator>
+    </recycle-item>
+  </recycle-view>
+  <view class="detail-toTop" hover-class="detail-toTop_hover" wx:if="{{cangotop}}" bindtap="handletoTop">↑</view>
+</view>

@@ -1,0 +1,25 @@
+<recycle-view class="index-list" height="{{height}}" batch="{{batchSetRecycleData}}" id="{{recycleId}}" scroll-top="{{scrollTop}}" scroll-with-animation="true" bindscrolltolower="scrolltolower" bindscroll="pageScroll" 
+refresherenabled="{{true}}" refreshertriggered="{{triggered}}" bindrefresherrefresh="onRefresh">
+  <recycle-item class="index-item" wx:for="{{recycleList ? indexTopicList : myTopicList}}" wx:key="_id" >
+    <navigator class="index-nav" url="/pages/detail/detail?id={{item._id}}">
+      <view class="index-item-left">
+        <image class="user-image" src="{{item.userInfo[0].avatar}}"></image>
+      </view>
+      <view class="index-item-right">
+        <view class="user-name">{{item.userInfo[0].name}}</view>
+        <rich-text class="topic-content" nodes="{{item.content}}"></rich-text>
+        <view class="image-list" wx:if="{{item.imageList.length > 0}}">
+          <image class="image-item" mode="aspectFill" wx:for="{{item.imageList}}" wx:key="_id" wx:for-item="image" src="{{image}}" data-src="{{image}}" catchtap="previewImage"></image>
+        </view>
+        <view class="video-list" wx:if="{{item.videoList.length > 0}}">
+          <video class="video-item" wx:for="{{item.videoList}}" wx:key="_id"   wx:for-item="video" src="{{video}}" id="{{video}}" data-id="{{video}}" catchtap="previewVideo"></video>
+        </view>
+        <view class="topic-info">
+          <view class="topic-time">{{item.created_at}}</view>
+          <view class="topic-reply-count" wx:if="{{item.reply_count > 0}}">{{item.  reply_count}} 回复</view>
+        </view>
+      </view>
+    </navigator>
+  </recycle-item>
+</recycle-view>
+<view class="index-toTop" hover-class="index-toTop_hover" wx:if="{{cangotop}}" bindtap="handletoTop">↑</view>

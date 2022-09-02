@@ -1,0 +1,38 @@
+.reply-container {
+	background-color: #e4e4e4;
+  border-bottom: 5rpx solid #999;
+	padding: 30rpx 20rpx 40rpx;
+	display: flex;
+}
+.user-image {
+  width: 100rpx;
+  height: 100rpx;
+  margin-right: 20rpx;
+}
+.user-name {
+  font-size: 15px;
+  color: #666;
+}
+.reply-time {
+  font-size: 13px;
+	color: #999;
+}
+.reply-item {
+	width: 100%;
+}
+.detail-toTop {
+  width: 100rpx;
+  height: 100rpx;
+  border-radius: 50%;
+  font-size: 25px;
+  font-weight: 900;
+  background: #fff;
+  text-align: center;
+  line-height: 100rpx;
+  position: fixed;
+  bottom: 50rpx;
+  right: 50rpx;
+}
+.detail-toTop_hover {
+  opacity: 0.6;
+}

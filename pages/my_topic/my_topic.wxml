@@ -1,0 +1,4 @@
+<!--pages/my_topic/my_topic.wxml-->
+<view class="page-container">
+  <custom-topics recycleId="myTopicId" openid="{{openid}}"></custom-topics>
+</view>

@@ -25,12 +25,12 @@ Component({
     _ctx: undefined, //接口createRecycleContext函数
     _num: 0,         //新创建的微博话题数量
   },
-  // pageLifetimes: {
-    attached: function() {
+  pageLifetimes: {
+    show: function() {
       this.showTopic(this._render);
       this.watchNum();
     },
-  // },
+  },
   methods: {
     showTopic(e) {
       let skip = this.data._skip;
@@ -39,7 +39,7 @@ Component({
       }
       const user = this.data.openid;
       let openid;
-      typeof user == "undefined" ? openid = "" : openid = user;
+      !user ? openid = "" : openid = user;
       const that = this;
       wx.cloud.callFunction({
         name: "lookupFunction",

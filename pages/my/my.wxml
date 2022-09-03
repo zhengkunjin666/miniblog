@@ -2,27 +2,43 @@
 <view class="page-container">
   <block wx:if="{{hasUser}}">
     <view class="userInfo">
-      <text class="userinfo-nickname">{{userInfo.nickName}}</text>
       <image class="userinfo-avatar" src="{{userInfo.avatarUrl}}"></image>
+      <view class="userInfo-text">
+        <view class="userinfo-nickname">{{userInfo.nickName}}</view>
+        <view class="userinfo-created_at">授权时间：{{userInfo.created_at}}</view>
+      </view>
     </view>
   </block>
   <block wx:if="{{hasUser}}">
     <view class="nav-list">
       <navigator class="nav-item" url="/pages/create/create">
-        <view class="nav-item-name">发布微博</view>
-        <view class="nav-item-icon"></view>
+        <image class="nav-item-icon" src="/images/my_nav1.png"></image>
+        <view class="nav-item-right">
+          <view class="nav-item-name">发布微博</view>
+          <view class="nav-item-arrow"></view>
+        </view>
       </navigator>
       <navigator class="nav-item" url="/pages/my_topic/my_topic">
-        <view class="nav-item-name">我的微博</view>
-        <view class="nav-item-icon"></view>
+        <image class="nav-item-icon" src="/images/my_nav2.png"></image>
+        <view class="nav-item-right">
+          <view class="nav-item-name">我的微博</view>
+          <view class="nav-item-arrow"></view>
+        </view>
       </navigator>
       <navigator class="nav-item" url="/pages/my_reply/my_reply">
-        <view class="nav-item-name">我的回复</view>
-        <view class="nav-item-icon"></view>
+        <image class="nav-item-icon" src="/images/my_nav3.png"></image>
+        <view class="nav-item-right">
+          <view class="nav-item-name">我的回复</view>
+          <view class="nav-item-arrow"></view>
+        </view>
       </navigator>
     </view>
   </block>
   <block wx:if="{{!hasUser}}">
+    <view class="login-content">
+      <image class="login-image" src="/images/my_login.png"></image>
+      <view class="login-text">请先授权登录后才可发布微博和评论</view>
+    </view>
     <button class="login-btn" hover-class="login-btn_hover" style="width: 80%;height: 120rpx;" bindtap="getUserInfo">授权登录使用</button>
   </block>
 </view>

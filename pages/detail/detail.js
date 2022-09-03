@@ -72,7 +72,7 @@ Page({
       page: this,
       itemSize: {
         width: rpx2px(750),
-        height: rpx2px(200),
+        height: rpx2px(150),
       }
     });
   },
@@ -129,14 +129,16 @@ Page({
     wx.getUserProfile({
       desc: "用于获取用户头像和昵称",
       success(res) {
-        const userInfo = res.userInfo;
+        let userInfo = res.userInfo;
         const name = userInfo.nickName;
         const avatar = userInfo.avatarUrl;
         const db = wx.cloud.database();
+        const created_at = db.serverDate();
         db.collection("user").add({
           data: {
             name,
             avatar,
+            created_at,
             isManager: false,
           }
         })
@@ -144,6 +146,7 @@ Page({
           that.setData({
             hasUser: true,
           });
+          userInfo.created_at = util.formatTime(new Date());
           that.userInfo = userInfo;
           App.globalData.userInfo = userInfo;
           wx.showToast({

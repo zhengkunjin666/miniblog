@@ -5,8 +5,9 @@ Page({
   data: {
     openid: undefined,
   },
-	onLoad() {
+  onLoad() {
     const openid = App.globalData.openid;
-    this.setData({ openid });
-  },
+    this.setData({ openid })
+    console.log(openid)
+  }
 })

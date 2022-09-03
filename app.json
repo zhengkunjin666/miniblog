@@ -1,20 +1,21 @@
 {
     "pages": [
         "pages/index/index",
-        "pages/detail/detail",
         "pages/my/my",
+        "pages/detail/detail",
         "pages/create/create",
         "pages/my_topic/my_topic",
         "pages/my_reply/my_reply"
     ],
     "window": {
         "backgroundTextStyle": "dark",
-        "navigationBarBackgroundColor": "#e4e4e4",
+        "navigationBarBackgroundColor": "#fafafa",
         "navigationBarTitleText": "云微博",
         "navigationBarTextStyle": "black"
     },
     "tabBar": {
       "color": "#C4C4C4",
+      "backgroundColor": "#fafafa",
       "selectedColor": "#040817",
       "list": [
         {

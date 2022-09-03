@@ -1,13 +1,14 @@
 /* pages/create/create.wxss */
 .page-container {
 	height: auto;
-	padding: 80rpx 40rpx;
+	padding: 80rpx 30rpx;
 	overflow: hidden;
 }
 .create-textarea {
   width: 100%;
   font-size: 14px;
   color: #333;
+  word-wrap: break-word;
 	line-height: 50rpx;
 	padding-left: 20rpx;
 }
@@ -16,7 +17,7 @@
   height: 194rpx;
 	background-color: #ededed;
 	position: relative;
-	margin-top: 20rpx;
+	margin-top: 30rpx;
 }
 .create-file::before {
 	content: " ";
@@ -43,36 +44,14 @@
 .create-file-box_hover {
 	opacity: 0.6;
 }
-.create-image-list {
-	display: flex;
-	flex-wrap: wrap;
-	justify-content: space-between;
-	margin-top: 40rpx;
-}
-.create-image-item {
-	width: 200rpx;
-	height: 200rpx;
-	margin-bottom: 37rpx;
-}
-.create-image-item:last-child {
-	margin-right: 237rpx;
-}
-.create-video-list {
-	margin: 40rpx 0;
-	display: flex;
-	justify-content: center;
-}
-.create-video-item {
-	width: 400rpx;
-	height: 400rpx;
-}
 .create-btn {
   font-size: 16px;
-  background-color: #333;
+	font-weight: 400;
 	color: #fff;
+	background: linear-gradient(#ff8200 0,#ffbc33 100%);
 	padding: 0;
   line-height: 100rpx;
-	border-radius: 0;
+	border-radius: 50rpx;
 	float: right;
 	margin-top: 80rpx;
 }

@@ -1,5 +1,11 @@
 <recycle-view class="index-list" height="{{height}}" batch="{{batchSetRecycleData}}" id="{{recycleId}}" scroll-top="{{scrollTop}}" scroll-with-animation="true" bindscrolltolower="scrolltolower" bindscroll="pageScroll" 
 refresherenabled="{{true}}" refreshertriggered="{{triggered}}" bindrefresherrefresh="onRefresh">
+  <view slot="before" wx:if="{{recycleList ? indexTopicListlength == 0 : myTopicList.length == 0}}">
+    <view class="index-bg">
+      <image class="index-image" src="/images/my_login.png"></image>
+      <view class="index-text">这里还没有内容</view>
+    </view>
+  </view>
   <recycle-item class="index-item" wx:for="{{recycleList ? indexTopicList : myTopicList}}" wx:key="_id" >
     <navigator class="index-nav" url="/pages/detail/detail?id={{item._id}}">
       <view class="index-item-left">
@@ -16,7 +22,7 @@ refresherenabled="{{true}}" refreshertriggered="{{triggered}}" bindrefresherrefr
         </view>
         <view class="topic-info">
           <view class="topic-time">{{item.created_at}}</view>
-          <view class="topic-reply-count" wx:if="{{item.reply_count > 0}}">{{item.  reply_count}} 回复</view>
+          <view class="topic-reply-count" wx:if="{{item.reply_count > 0}}">{{item.reply_count}} 回复</view>
         </view>
       </view>
     </navigator>

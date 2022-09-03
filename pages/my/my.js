@@ -1,5 +1,6 @@
 // pages/my/my.js
 const App = getApp();
+const util = require('../../utils/util.js');
 
 Page({
   data: {
@@ -10,14 +11,7 @@ Page({
     this.loading();
   },
   loading() {
-    wx.showLoading({
-      title: "加载中",
-      mask: true,
-    })
-    setTimeout(() => {
-      this.hasUserInfo();
-      wx.hideLoading();
-    }, 1000);
+    this.hasUserInfo();
   },
   onShow() {
     this.hasUserInfo();
@@ -36,18 +30,21 @@ Page({
     wx.getUserProfile({
       desc: "用于获取用户头像和昵称",
       success(res) {
-        const userInfo = res.userInfo;
+        let userInfo = res.userInfo;
         const name = userInfo.nickName;
         const avatar = userInfo.avatarUrl;
         const db = wx.cloud.database();
+        const created_at = db.serverDate();
         db.collection("user").add({
           data: {
             name,
             avatar,
+            created_at,
             isManager: false,
           }
         })
         .then(() => {
+          userInfo.created_at = util.formatTime(new Date());
           that.setData({
             hasUser: true,
             userInfo: userInfo,

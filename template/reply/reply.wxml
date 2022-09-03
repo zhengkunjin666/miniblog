@@ -6,7 +6,7 @@
     <view class="reply-item-right">
       <view class="user-name">{{item.userInfo.nickName}}</view>
 	    <view class="reply-content">{{item.content}}</view>
-	    <view class="reply-time">{{item.created_at}}</view>
+	    <view class="reply-time">回复时间：{{item.created_at}}</view>
  	  </view>
   </view>
 </template>

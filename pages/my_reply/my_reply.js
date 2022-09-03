@@ -28,7 +28,7 @@ Page({
       page: this,
       itemSize: {
         width: rpx2px(750),
-        height: rpx2px(200),
+        height: rpx2px(150),
       }
     });
   },

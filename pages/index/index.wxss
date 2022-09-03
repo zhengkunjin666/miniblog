@@ -1,1 +1,5 @@
 /**index.wxss**/
+.page-container {
+  background: #eeeded;
+	position: relative;
+}

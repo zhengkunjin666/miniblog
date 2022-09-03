@@ -1,0 +1,17 @@
+<template name="detailSource">
+	<view class="image-list" wx:if="{{item.imageList.length > 0}}">
+    <image class="image-item {{num}}" mode="aspectFill" wx:for="{{item.imageList}}" wx:key="_id" wx:for-item="image" src="{{image}}" data-src="{{image}}" catchtap="previewImage"></image>
+  </view>
+  <view class="video-list" wx:if="{{item.videoList.length > 0}}">
+    <video class="video-item" controls wx:for="{{item.videoList}}" wx:key="_id" wx:for-item="video" src="{{video}}"></video>
+  </view>
+</template>
+
+<template name="createSource">
+	<view class="image-list" wx:if="{{imageList.length > 0}}">
+    <image class="image-item {{num}}" mode="aspectFill" wx:for="{{imageList}}" wx:key="tempFilePath" src="{{item}}" data-src="{{item}}" catchtap="previewImage"></image>
+  </view>
+  <view class="video-list" wx:if="{{videoList.length > 0}}">
+    <video class="video-item" controls wx:for="{{videoList}}" wx:key="tempFilePath" src="{{item}}"></video>
+  </view>
+</template>

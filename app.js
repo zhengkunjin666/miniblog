@@ -1,4 +1,6 @@
 // app.js
+const util = require('./utils/util');
+
 App({
   onLaunch() {
 		this.cloudInit();
@@ -28,21 +30,10 @@ App({
 						if (res.data.length > 0) {
 							const nickName = res.data[0].name;
 							const avatarUrl = res.data[0].avatar;
-							const userInfo = { nickName, avatarUrl };
+							const created_at = util.formatTime(new Date(res.data[0].created_at));
+							const userInfo = { nickName, avatarUrl, created_at };
 							that.globalData.userInfo = userInfo;
 							that.globalData.openid = openid;
-						} else {
-							wx.switchTab({
-								url: '/pages/my/my',
-								success() {
-									wx.showModal({
-										title: "信息提示",
-										content: "需要在此授权登录后才可评论与发布微博哦！",
-										showCancel: false,
-										confirmText: "我已知晓",
-									})
-								}
-							})
 						}
 					}
 				});

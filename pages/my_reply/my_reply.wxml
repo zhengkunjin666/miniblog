@@ -2,6 +2,12 @@
 <import src="/template/reply/reply"/>
 
 <view class="page-container">
+  <block wx:if="{{replyList.length == 0}}">
+    <view class="reply-bg">
+      <image class="reply-image" src="/images/my_login.png"></image>
+      <view class="reply-text">这里还没有内容</view>
+    </view>
+  </block>
   <recycle-view class="reply-list" height="{{height}}" batch="{{batchSetRecycleData}}" id="replyId" scroll-top="{{scrollTop}}" scroll-with-animation="true" bindscrolltolower="scrolltolower" bindscroll="pageScroll" refresherenabled="{{true}}" refreshertriggered="{{triggered}}" bindrefresherrefresh="onRefresh">
     <recycle-item class="reply-item" wx:for="{{replyList}}" wx:key="_id">
       <navigator class="reply-nav" url="/pages/detail/detail?id={{item.topic_id}}">

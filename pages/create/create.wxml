@@ -1,16 +1,19 @@
 <!--pages/create/create.wxml-->
+<import src="/template/source/source"/>
 <view class="page-container">
 	<editor class="create-textarea" style="min-height: 200rpx;height: 200rpx;" auto-focus placeholder="今天有啥新发现 ~" bindinput="handleChange"></editor>
-	<block wx:if="{{imageList.length > 0}}">
+  <template is="createSource" data="{{imageList, num, videoList}}"/>
+	<!-- <block wx:if="{{imageList.length > 0}}">
+    
     <view class="create-image-list">
-      <image class="create-image-item" mode="aspectFill" wx:for="{{imageList}}" wx:key="tempFilePath" src="{{item}}" data-src="{{item}}" bindtap="previewImage"></image>
+      <image class="create-image-item {{num}}" mode="aspectFill" wx:for="{{imageList}}" wx:key="tempFilePath" src="{{item}}" data-src="{{item}}" bindtap="previewImage"></image>
     </view>
   </block>
 	<block wx:if="{{videoList.length > 0}}">
     <view class="create-video-list">
       <video class="create-vidoe-item" wx:for="{{videoList}}" wx:key="tempFilePath" src="{{item}}" data-src="{{item}}" bindtap="previewImage"></video>
     </view>
-  </block>
+  </block> -->
 	<view class="create-file-box" hover-class="create-file-box_hover" bindtap="handleUpload">
 		<view class="create-file"></view>
 	</view>

@@ -1,5 +1,6 @@
 /* pages/my/my.wxss */
 .page-container{
+	background: #fafafa;
 	position: relative;
 	display: flex;
 	flex-direction: column;
@@ -9,53 +10,82 @@
 	height: 20%;
 	background: #fff;
 	display: flex;
-	justify-content: space-between;
 	align-items: center;
 }
-.userinfo-nickname {
-	font-size: 20px;
-	margin-left: 40rpx;
-}
 .userinfo-avatar {
-	width: 120rpx;
-	height: 120rpx;
-	border-radius: 50%;
-	overflow: hidden;
-	margin-right: 40rpx;
+	width: 100rpx;
+	height: 100rpx;
+	border-radius: 10rpx;
+	margin-left: 40rpx;
+	margin-right: 30rpx;
+}
+.userinfo-nickname {
+	font-size: 15px;
+	font-weight: 600;
+}
+.userinfo-created_at {
+	font-size: 12px;
+	color: #999;
 }
 .nav-list {
 	height: 100%;
-	border-top: 20rpx solid #e4e4e4;
-	background: #fff;
+	border-top: 40rpx solid #eeeded;
+	background: #eeeded;
 }
 .nav-item {
-	padding: 40rpx;
-	border-bottom: 1px solid #e4e4e4;
+	background: #fff;
+	display: flex;
+	align-items: center;
+}
+.nav-item-icon {
+	width: 40rpx;
+	height: 40rpx;
+	margin: 0 30rpx;
+}
+.nav-item-right {
+	width: 100%;
+	height: 100%;
+	padding: 30rpx 0;
+	border-bottom: 1px solid #eeeded;
 	position: relative;
+	box-sizing: border-box;
+}
+.nav-item:last-child .nav-item-right {
+	border-bottom: 0;
 }
 .nav-item-name {
-	font-size: 16px;
-	color: #666;
+	font-size: 14px;
+	color: #333;
 }
-.nav-item-icon{
+.nav-item-arrow{
 	width: 6px;
   height: 6px;
-	border: 2px solid #999;
+	border: 2px solid #dfdfdf;
 	border-left: 0;
 	border-bottom: 0;
-  transform: rotate(45deg);
+	transform: rotate(45deg);
   position: absolute;
   top: 43%;
 	right: 30rpx;
 }
+.login-content {
+	text-align: center;
+	margin-top: 20%;
+}
+.login-image {
+	width: 200rpx;
+	height: 200rpx;
+	margin-bottom: 5%;
+}
 .login-btn {
+	font-weight: 400;
 	color: #fff;
-	background-color: #000;
+	background: linear-gradient(to right,#ff8200 0,#ffbc33 100%);
 	padding: 0;
 	line-height: 120rpx;
-	border-radius: 0;
+	border-radius: 60rpx;
 	position: absolute;
-	bottom: 140rpx;
+	bottom: 15%;
 	left: 10%;
 }
 .login-btn_hover {

@@ -5,6 +5,7 @@ const db = wx.cloud.database();
 Page({
   data: {
     imageList: [],
+    num: "",
     videoList: [],
   },
   content: "",
@@ -27,7 +28,7 @@ Page({
                 if (res.type == "image") {
                   const type = "image";
                   const filePathArr = res.tempFiles;
-                  that.uploadFile(type,filePathArr)
+                  that.uploadFile(type, filePathArr);
                 } else {
                   wx.showToast({
                     title: "只能选择图片",
@@ -60,7 +61,7 @@ Page({
       }
     })
   },
-  uploadFile(type,arr) {
+  uploadFile(type, arr) {
     wx.showLoading({
       title: "上传中",
       mask: true,
@@ -89,7 +90,7 @@ Page({
             imageList,
             videoList
           });
-          if (arr.length - 1 == index) {
+          if (arr.length - 1  == index) {
             wx.hideLoading();
           }
         },
@@ -104,6 +105,15 @@ Page({
         }
       })
     });
+    if (arr.length == 1) {
+      const num = "one";
+      that.setData({ num });
+    } else if (arr.length == 2) {
+      const num = "two";
+      that.setData({ num });
+    } else if (arr.length > 2) {
+      that.setData({ num: "" });
+    }
   },
   previewImage(e) {
     const current = e.target.dataset.src;

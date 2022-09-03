@@ -1,10 +1,11 @@
 /**app.wxss**/
 @import "/template/reply/reply.wxss";
+@import "/template/source/source.wxss";
 
 page {
   height: 100%;
   font-size: 16px;
-  font-family: Arial;
+  font-family: Helvetica Neue,Helvetica,Arial,sans-serif;
   color: #333;
   line-height: 1.6;
 }

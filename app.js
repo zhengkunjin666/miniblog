@@ -22,6 +22,7 @@ App({
 			name: "wxContext",
 			success(res) {
 				const openid = res.result.openid;
+				that.globalData.openid = openid;
 				const db = wx.cloud.database();
 				db.collection("user").where({
 					_openid: openid,
@@ -33,7 +34,6 @@ App({
 							const created_at = util.formatTime(new Date(res.data[0].created_at));
 							const userInfo = { nickName, avatarUrl, created_at };
 							that.globalData.userInfo = userInfo;
-							that.globalData.openid = openid;
 						}
 					}
 				});

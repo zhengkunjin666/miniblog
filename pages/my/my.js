@@ -8,9 +8,6 @@ Page({
     userInfo: {},
   },
   onLoad() {
-    this.loading();
-  },
-  loading() {
     this.hasUserInfo();
   },
   onShow() {

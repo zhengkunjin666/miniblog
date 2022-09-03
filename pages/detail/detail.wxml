@@ -3,7 +3,9 @@
 <import src="/template/reply/reply"/>
 <view class="page-container">
 	<view class="userInfo-section" wx:for="{{topic}}" wx:key="_id">
-		<image class="userInfo-image" src="{{item.userInfo[0].avatar}}"></image>
+	  <view class="userInfo-left">
+		  <image class="userInfo-image" src="{{item.userInfo[0].avatar}}"></image>
+		</view>
 		<view class="userInfo-content">
 			<view class="userInfo-name">{{item.userInfo[0].name}}</view>
 			<view class="create-time">创建时间：{{item.created_at}}</view>
@@ -18,7 +20,7 @@
 			<input type="text" class="reply-input" placeholder="评论点啥" value="{{inputValue}}" bindinput="handleChange"/>
 			<button class="reply-sumbit" hover-class="reply-sumbit_hover" style="width: 21%;height: 80rpx;" bindtap="handleSubmit">评论</button>
 		</view>
-		<button class="login-btn" style="width: 100%;height: 100rpx;margin: 0 30rpx;" wx:if="{{!hasUser}}" bindtap="getUserInfo">登录后评论</button>
+		<button class="login-btn" style="width: 100%;height: 80rpx;margin: 0 30rpx;" wx:if="{{!hasUser}}" bindtap="getUserInfo">登录后评论</button>
     <recycle-view class="reply-list" batch="{{batchSetRecycleData}}" id="recycleReplyId" scroll-top="{{scrollTop}}" scroll-with-animation="true" height="600" bindscrolltolower="scrolltolower" bindscroll="pageScroll" refresherenabled="{{true}}" refreshertriggered="{{triggered}}" bindrefresherrefresh="onRefresh">
 			<view class="reply-desc" slot="before" wx:if="{{recycleReplyList.length == 0}}">此话题还没有评论，现在评论可成为第一个评论者哦~</view>
       <recycle-item class="reply-item" wx:for="{{recycleReplyList}}" wx:key="_id">

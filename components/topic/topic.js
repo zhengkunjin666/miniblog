@@ -7,6 +7,7 @@ Component({
   properties: {
     recycleId: String,
     openid: String,
+    hasUser: Boolean,
   },
   options: {
     pureDataPattern: /^_/ // 指定所有 _ 开头的数据字段为纯数据字段
@@ -17,6 +18,8 @@ Component({
     cangotop: false,
     scrollTop: null,
     triggered: true,
+    _indexCount: 1,  //限制首页微博的加载次数为1次
+    _myCount: 1,     //限制我的微博的加载次数为1次
     _fullScreen: false,
     _topic: [],
     _limit: 10,      //显示的条数
@@ -27,8 +30,22 @@ Component({
   },
   pageLifetimes: {
     show: function() {
-      this.showTopic(this._render);
-      this.watchNum();
+        if (this.data.openid && this.data._myCount == 1) {
+          if (!this.data.hasUser) {
+            const that = this;
+            this._render(that);
+            return;
+          }
+          this.showTopic(this._render);
+          this.watchNum();
+          const _myCount = this.data._myCount + 1;
+          this.setData({ _myCount })
+        } else if (!this.data.openid && this.data._myCount == 1) {
+          this.showTopic(this._render);
+          this.watchNum();
+          const _myCount = this.data._myCount + 1;
+          this.setData({ _myCount })
+        }
     },
   },
   methods: {

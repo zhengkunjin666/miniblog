@@ -1,4 +1,4 @@
 <!--index.wxml-->
 <view class="page-container">
-  <custom-topics recycleId="indexTopicId"></custom-topics>
+  <custom-topics hasUser="true" recycleId="indexTopicId"></custom-topics>
 </view>
